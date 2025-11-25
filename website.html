@@ -174,13 +174,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;  /* spacing between each feature box */
-}
+    gap: 30px; 
 
 .container-1 {
     display: flex;
     align-items: center;
-    gap: 12px; /* space between icon and text */
+    gap: 12px; 
     padding: 10px 15px;
 }
 
@@ -196,7 +195,7 @@
     margin: 0;
     font-size: x-large;
     font-weight: bold;
-    color: #2c3e1f; /* dark green like your reference */
+    color: #2c3e1f;
 }
 
 .freeshiping p {
@@ -273,7 +272,7 @@
         margin: 30px;
     }
     .work-card{
-        /* border: solid black 1px; */
+        
         width: 320px;
         height: 150px;
         color: black;
@@ -285,7 +284,7 @@
         border: solid black 3px;
     }
     .work-card p{
-        /* font-size: medium; */
+       
         font-family: Arial, Helvetica, sans-serif;
         font-weight: lighter;
         text-align: center;
@@ -369,7 +368,7 @@
       color: #333;
     }
     .shop-now h2{
-        /* border: solid rgb(0, 0, 0) 5px; */
+        
         border-radius: 30px;
         height: 35px;
         width: 150px;
@@ -479,7 +478,7 @@
       transition: 0.3s;
     }
     .email button:hover {
-      background: #324d24; /* lighter green on hover */
+      background: #324d24; 
     }
     .details{
         display: flex;
@@ -507,7 +506,7 @@
     }
 
     .contact-item i {
-      color: #1f2d14; /* dark green icon */
+      color: #1f2d14;
       font-size: 18px;
     }
 
@@ -517,7 +516,7 @@
     }
 
     .contact-item a:hover {
-      color: #1f2d14; /* hover effect */
+      color: #1f2d14;
     }
     .dotedline p{
         padding-top: 0;
@@ -525,9 +524,9 @@
         font-size: larger;
     }
     .find{
-        display: flex;             /* Put items in a row */
-      align-items: center;       /* Align vertically */
-      gap: 15px;                 /* Gap between text and icons */
+        display: flex;             
+      align-items: center;       
+      gap: 15px;                 
       color: #2d341d;
       font-size: 25px;
     }
@@ -903,7 +902,7 @@
     
 <!-- ✅ JAVASCRIPT ADDED HERE -->
 <script>
-/* ---------------- Countdown Timer ---------------- */
+
 const targetDate = new Date();
 targetDate.setDate(targetDate.getDate() + 7); // 7 days from now
 
@@ -928,13 +927,13 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000);
 
-/* ---------------- Rotating Star Toggle ---------------- */
+
 const starImg = document.querySelector(".design img");
 starImg.addEventListener("click", () => {
   starImg.classList.toggle("rotate");
 });
 
-/* ---------------- Email Validation ---------------- */
+
 const emailForm = document.querySelector(".email");
 emailForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -949,7 +948,7 @@ emailForm.addEventListener("submit", (e) => {
   }
 });
 
-/* ---------------- Video Play/Pause on Click ---------------- */
+
 const video = document.querySelector(".vedo");
 video.addEventListener("click", () => {
   if (video.paused) {
@@ -959,7 +958,7 @@ video.addEventListener("click", () => {
   }
 });
 
-/* ---------------- Dropdown Fix for Mobile ---------------- */
+
 document.querySelectorAll(".DROPDOWN > a").forEach(anchor => {
   anchor.addEventListener("click", (e) => {
     e.preventDefault();
@@ -971,4 +970,5 @@ document.querySelectorAll(".DROPDOWN > a").forEach(anchor => {
 
 </script>
 </body>
+
 </html> 
