@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deal Of The Week</title>
+  <style>
+    .deal-box {
+      display: flex;
+      justify-content: space-between;  /* equal space between text & image */
+      align-items: center;
+      border: 1px solid #000;
+      border-radius: 8px;
+      padding: 40px 60px;   /* equal padding left and right */
+      max-width: 1000px;
+      margin: 30px auto;   /* center the box on page */
+      background: #fff;
+    }
+
+    .deal-text {
+      flex: 1;   /* take equal space */
+      padding-right: 20px;
+    }
+
+    .deal-text p {
+      font-size: 20px;
+      color: #145214;
+      margin: 10px 0;
+    }
+
+    .deal-text h2 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #145214;
+      margin: 10px 0;
+    }
+
+    .deal-img {
+      flex: 1;  /* take equal space */
+      display: flex;
+      justify-content: center;
+    }
+
+    .deal-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="deal-box">
+    <div class="deal-text">
+      <p>→ Deal Of The Week</p>
+      <h2>Hurry Up! Offer ends in. Get</h2>
+      <p><b>UP TO 30% OFF</b></p>
+    </div>
+    <div class="deal-img">
+      <img src="tea-offer.png" alt="Tea Offer">
+    </div>
+  </div>
+</body>
+</html>

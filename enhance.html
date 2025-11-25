@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shriji Agro Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* --------- Theme Variables --------- */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1f2d14;
+      --accent-color: #1f2d14;
+      --card-bg: #f9f9f9;
+    }
+    body.dark-mode {
+      --bg-color: #1a1a1a;
+      --text-color: #e6e6e6;
+      --accent-color: #6dbf4b;
+      --card-bg: #2b2b2b;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* --------- Navbar --------- */
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: var(--accent-color);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .intro h2 {
+      margin: 0;
+    }
+    .intro nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .intro nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* --------- Theme Toggle --------- */
+    #themeToggle {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+      margin-left: 15px;
+    }
+
+    /* --------- Hero Section --------- */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero img {
+      max-width: 400px;
+      border-radius: 10px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 20px 0;
+    }
+
+    /* --------- Cards Section --------- */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 50px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* --------- Reviews --------- */
+    .reviews {
+      padding: 50px;
+      background: var(--card-bg);
+      text-align: center;
+    }
+    .review-box {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 12px;
+      background: var(--bg-color);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+
+    /* --------- Newsletter --------- */
+    .email {
+      padding: 40px;
+      text-align: center;
+    }
+    .email-bar {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .btn {
+      padding: 10px 15px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #324d24;
+    }
+
+    /* --------- Footer --------- */
+    .footer {
+      background: var(--accent-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* --------- Scroll-to-top --------- */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s;
+    }
+    #scrollTopBtn:hover {
+      background: #324d24;
+    }
+
+    /* --------- Animations --------- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --------- Popup --------- */
+    #popup {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 30px 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      display: none;
+      text-align: center;
+      z-index: 2000;
+    }
+    #popup h3 {
+      color: var(--accent-color);
+    }
+    #popup button {
+      margin-top: 15px;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="intro">
+    <h2>Shriji Agro</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="themeToggle" title="Toggle Dark Mode">🌙</button>
+  </div>
+
+  <!-- Hero Section -->
+  <div id="home" class="hero fade-in">
+    <img src="hero.jpg" alt="Agro Products">
+    <h1>Welcome to Shriji Agro Products</h1>
+    <p>Fresh and Organic Products Direct from Farms</p>
+  </div>
+
+  <!-- Products -->
+  <div id="products" class="cards">
+    <div class="card fade-in">
+      <img src="product1.jpg" alt="Product 1">
+      <h3>Organic Wheat</h3>
+      <p>High-quality wheat directly from farms.</p>
+    </div>
+    <div class="card fade-in">
+      <img src="product2.jpg" alt="Product 2">
+      <h3>Natural Rice</h3>
+      <p>Premium rice for your daily meals.</p>
+    </div>
+    <div class="card fade-in">
+      <img src="product3.jpg" alt="Product 3">
+      <h3>Fresh Pulses</h3>
+      <p>Healthy and protein-rich pulses.</p>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div id="reviews" class="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="review-box fade-in">
+      <p>"Amazing quality and fast delivery. Highly recommend!"</p>
+      <strong>- Riya Sharma</strong>
+    </div>
+    <div class="review-box fade-in">
+      <p>"Fresh products at affordable prices. Loved it!"</p>
+      <strong>- Amit Verma</strong>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div id="contact" class="email fade-in">
+    <h2>Subscribe to our Newsletter</h2>
+    <form class="email">
+      <input type="email" class="email-bar" placeholder="Enter your email">
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Shriji Agro Products. All Rights Reserved.</p>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup">
+    <h3>✅ Subscribed Successfully!</h3>
+    <button onclick="this.parentElement.style.display='none'">Close</button>
+  </div>
+
+  <!-- Scroll-to-top button -->
+  <button id="scrollTopBtn">↑</button>
+
+  <!-- JavaScript Enhancements -->
+  <script>
+    /* --------- Scroll-to-Top --------- */
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* --------- Smooth Scroll --------- */
+    document.querySelectorAll('.intro a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    /* --------- Fade-in on Scroll --------- */
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    /* --------- Newsletter Popup --------- */
+    const popup = document.getElementById("popup");
+    const emailForm = document.querySelector(".email form");
+    emailForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const emailInput = emailForm.querySelector(".email-bar").value;
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (!emailPattern.test(emailInput)) {
+        alert("❌ Please enter a valid email address!");
+      } else {
+        popup.style.display = "block";
+        emailForm.reset();
+      }
+    });
+
+    /* --------- Dark/Light Mode --------- */
+    const themeToggle = document.getElementById("themeToggle");
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️";
+    }
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        themeToggle.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        themeToggle.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
